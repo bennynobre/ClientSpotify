@@ -1,11 +1,11 @@
-import Search from './pages/Search'
+import { AppRoutes } from './Routes'
 import { GlobalStyle } from './styles/global'
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Search />
+      <AppRoutes />
     </>
   )
 }
