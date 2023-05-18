@@ -53,7 +53,27 @@ export default function Search() {
       id: 10,
       name: 'Album 10',
       image: 'https://source.unsplash.com/random/50x50?sig=10'
-    }
+    },
+    {
+        id: 11,
+        name: 'Album 11',
+        image: 'https://source.unsplash.com/random/50x50?sig=11'
+    },
+    {
+        id: 12,
+        name: 'Album 12',
+        image: 'https://source.unsplash.com/random/50x50?sig=12'
+    },
+    {
+        id: 13,
+        name: 'Album 13',
+        image: 'https://source.unsplash.com/random/50x50?sig=13'
+    },
+    {
+        id: 14,
+        name: 'Album 14',
+        image: 'https://source.unsplash.com/random/50x50?sig=14'
+    },
   ]
 
   return (
@@ -74,7 +94,6 @@ export default function Search() {
             <CardComponent key={id} title={name} image={image} />
           ))}
         </CardRow>
-        <h1>ola</h1>
       </div>
     </SearchContainer>
   )

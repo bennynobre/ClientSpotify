@@ -6,7 +6,7 @@ export const SearchContainer = styled.div`
   align-items: flex-start;
   background-color: #121212;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow-y: hidden;
 
   .ContentCard {
@@ -47,12 +47,14 @@ export const SearchContent = styled.div`
       background-color: #1db954;
     }
   }
-`
+`;
 
 export const CardRow = styled.div`
   display: grid;
   grid-template-columns: 350px 350px 350px;
   gap: 20px;
-  padding-left: 4rem;
+  padding-left: 3rem;
+  padding-right: 4rem;
   overflow-y: scroll;
-`
+  max-height: 40rem;
+`;

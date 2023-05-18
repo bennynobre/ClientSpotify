@@ -7,11 +7,11 @@ export default function SideBar() {
       <ul>
         <li>
           <span className="material-symbols-outlined">home</span>
-          Home{' '}
+          <a href="/">Home</a>
         </li>
         <li>
           <span className="material-symbols-outlined">search</span>
-          <a href="/">Search</a>
+          <a href="/Search">Search</a>
         </li>
         <li>
           <span className="material-symbols-outlined">favorite</span>
