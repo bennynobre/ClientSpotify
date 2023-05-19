@@ -26,6 +26,7 @@ export const SearchContent = styled.div`
   padding-left: 1rem;
   background-color: #121212;
   gap: 20px;
+  height: 5rem;
 
   input {
     width: 30rem;

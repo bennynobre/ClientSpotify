@@ -6,12 +6,14 @@ export default function SideBar() {
       <h1> SearchFy </h1>
       <ul>
         <li>
-          <span className="material-symbols-outlined">home</span>
-          <a href="/">Home</a>
+          <a href="/">
+            <span className="material-symbols-outlined">home</span> Home
+          </a>
         </li>
         <li>
-          <span className="material-symbols-outlined">search</span>
-          <a href="/Search">Search</a>
+          <a href="/Search">
+            <span className="material-symbols-outlined">search</span> Search
+          </a>
         </li>
         <li>
           <span className="material-symbols-outlined">favorite</span>
