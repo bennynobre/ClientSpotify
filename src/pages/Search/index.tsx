@@ -2,79 +2,56 @@ import CardComponent from '../../components/CardComponent'
 import SideBar from '../../components/SideBar'
 import { CardRow, SearchContainer, SearchContent } from './style'
 
+import { useState, useEffect } from 'react'
+
+const CLIENT_ID = process.env.CLIENT_ID_SPOTIFY;
+const CLIENT_SECRET = process.env.CLIENT_SECRET_SPOTIFY;
+
 export default function Search() {
-  const fakeAPi = [
-    {
-      id: 1,
-      name: 'Album 1',
-      image: 'https://source.unsplash.com/random/50x50?sig=1'
-    },
-    {
-      id: 2,
-      name: 'Album 2',
-      image: 'https://source.unsplash.com/random/50x50?sig=2'
-    },
-    {
-      id: 3,
-      name: 'Album 3',
-      image: 'https://source.unsplash.com/random/50x50?sig=3'
-    },
-    {
-      id: 4,
-      name: 'Album 4',
-      image: 'https://source.unsplash.com/random/50x50?sig=4'
-    },
-    {
-      id: 5,
-      name: 'Album 5',
-      image: 'https://source.unsplash.com/random/50x50?sig=5'
-    },
-    {
-      id: 6,
-      name: 'Album 6',
-      image: 'https://source.unsplash.com/random/50x50?sig=6'
-    },
-    {
-      id: 7,
-      name: 'Album 7',
-      image: 'https://source.unsplash.com/random/50x50?sig=7'
-    },
-    {
-      id: 8,
-      name: 'Album 8',
-      image: 'https://source.unsplash.com/random/50x50?sig=8'
-    },
-    {
-      id: 9,
-      name: 'Album 9',
-      image: 'https://source.unsplash.com/random/50x50?sig=9'
-    },
-    {
-      id: 10,
-      name: 'Album 10',
-      image: 'https://source.unsplash.com/random/50x50?sig=10'
-    },
-    {
-        id: 11,
-        name: 'Album 11',
-        image: 'https://source.unsplash.com/random/50x50?sig=11'
-    },
-    {
-        id: 12,
-        name: 'Album 12',
-        image: 'https://source.unsplash.com/random/50x50?sig=12'
-    },
-    {
-        id: 13,
-        name: 'Album 13',
-        image: 'https://source.unsplash.com/random/50x50?sig=13'
-    },
-    {
-        id: 14,
-        name: 'Album 14',
-        image: 'https://source.unsplash.com/random/50x50?sig=14'
-    },
-  ]
+  const [searchInput, setSearchInput] = useState('');
+  const [accessToken, setAccessToken] = useState('')
+  const [albums, setAlbums] = useState([])
+
+  useEffect (() => {
+    // API Access Token
+    const authParameters = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: 'grant_type=client_credentials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
+    }
+    fetch('https://accounts.spotify.com/api/token', authParameters)
+      .then(result => result.json())
+      .then(data => setAccessToken(data.access_token))
+  }, [])
+
+  // API Search
+  async function search() {
+    // Get request using search to get artist ID
+    const searchParameters = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + accessToken
+      }
+    }
+
+    const ArtistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
+      .then(result => result.json())
+      .then(data => { return data.artists.items[0].id})
+
+    
+    // Get request with Artist ID to get artist albums
+    const returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + ArtistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
+      .then(result => result.json())
+      .then(data => {
+        console.log(data)
+        setAlbums(data.items)
+      })
+
+    // Display those albums to the users
+  }
 
   return (
     <SearchContainer>
@@ -82,16 +59,25 @@ export default function Search() {
 
       <div className="ContentCard">
         <SearchContent>
-          <input type="text" placeholder="Search for Artist" />
-          <button>
+          <input 
+          type="input" 
+          placeholder="Search for Artist" 
+          onKeyPress={event => {
+            if (event.key == "Enter") {
+              search()
+            }
+          }}
+          onChange={event => setSearchInput(event.target.value)}
+          />
+          <button onClick={search}>
             {' '}
             <span className="material-symbols-outlined">search</span>{' '}
           </button>
         </SearchContent>
 
         <CardRow>
-          {fakeAPi.map(({id, name, image}) => (
-            <CardComponent key={id} title={name} image={image} />
+          {albums.map( (album, i) => (
+            <CardComponent key={i} title={album.name} image={album.images[0].url} />
           ))}
         </CardRow>
       </div>
