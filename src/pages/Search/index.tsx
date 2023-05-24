@@ -4,8 +4,8 @@ import { CardRow, SearchContainer, SearchContent } from './style'
 
 import { useState, useEffect } from 'react'
 
-const CLIENT_ID = process.env.CLIENT_ID_SPOTIFY;
-const CLIENT_SECRET = process.env.CLIENT_SECRET_SPOTIFY;
+const CLIENT_ID = "";
+const CLIENT_SECRET = "";
 
 export default function Search() {
   const [searchInput, setSearchInput] = useState('');
@@ -77,7 +77,7 @@ export default function Search() {
 
         <CardRow>
           {albums.map( (album, i) => (
-            <CardComponent key={i} title={album.name} image={album.images[0].url} />
+            <CardComponent key={i} title={album.name} image={album.images[0].url} url={album.external_urls.spotify} />
           ))}
         </CardRow>
       </div>

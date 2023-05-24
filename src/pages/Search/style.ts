@@ -7,13 +7,13 @@ export const SearchContainer = styled.div`
   background-color: #121212;
   width: 100%;
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 
   .ContentCard {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: hidden;
+    overflow: hidden;
   }
 `
 
@@ -52,7 +52,7 @@ export const SearchContent = styled.div`
 
 export const CardRow = styled.div`
   display: grid;
-  grid-template-columns: 350px 350px 350px;
+  grid-template-columns: 300px 300px 300px;
   gap: 20px;
   padding-left: 3rem;
   padding-right: 4rem;
