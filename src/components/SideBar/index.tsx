@@ -23,6 +23,10 @@ export default function SideBar() {
           <span className="material-symbols-outlined">travel_explore</span>
           Remember
         </li>
+        <li>
+          <span className="material-symbols-outlined">logout</span>
+          <a href="/Login" onClick={() => window.localStorage.clear()}>Logout</a>
+        </li>
       </ul>
     </SideBarContainer>
   )
