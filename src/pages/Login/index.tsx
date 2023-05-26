@@ -8,7 +8,7 @@ export default function Login() {
 
   const handleClick = () => {
     const CLIENT_ID = '614e8f9b79d3485db1cca84c7f4efe5a'
-    const REDIRECT_URI = 'clientspotify-mil6q7uika-rj.a.run.app'
+    const REDIRECT_URI = 'https://clientspotify-mil6q7uika-rj.a.run.app/'
     const apiUrl = 'https://accounts.spotify.com/authorize'
     const scopes = [
       'user-read-private',
