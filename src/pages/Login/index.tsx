@@ -8,7 +8,7 @@ export default function Login() {
 
   const handleClick = () => {
     const CLIENT_ID = '614e8f9b79d3485db1cca84c7f4efe5a'
-    const REDIRECT_URI = 'https://clientspotify-mil6q7uika-rj.a.run.app/'
+    const REDIRECT_URI = 'clientspotify-mil6q7uika-rj.a.run.app'
     const apiUrl = 'https://accounts.spotify.com/authorize'
     const scopes = [
       'user-read-private',
@@ -24,6 +24,8 @@ export default function Login() {
       ' '
     )}&response_type=token&show_dialog=true`
   }
+
+  //https://accounts.spotify.com/authorize?client_id=614e8f9b79d3485db1cca84c7f4efe5a&redirect_uri=https://clientspotify-mil6q7uika-rj.a.run.app//&scope=user-read-private%20user-read-email%20user-modify-playback-state%20user-read-playback-state%20user-read-currently-playing%20user-read-recently-played%20user-read-playback-position%20user-top-read&response_type=token&show_dialog=true
 
   const getReturnedParamsFromSpotifyAuth = hash => {
     const stringAfterHashtag = hash.substring(1)
