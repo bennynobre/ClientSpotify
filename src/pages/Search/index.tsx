@@ -4,8 +4,8 @@ import { CardRow, SearchContainer, SearchContent } from './style'
 
 import { useState, useEffect } from 'react'
 
-const CLIENT_ID = "";
-const CLIENT_SECRET = "";
+const CLIENT_ID = "614e8f9b79d3485db1cca84c7f4efe5a";
+const CLIENT_SECRET = "a28bf16675094e27bc25b86dd1e9c9a8";
 
 export default function Search() {
   const [searchInput, setSearchInput] = useState('');

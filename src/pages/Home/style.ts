@@ -9,7 +9,7 @@ export const HomeContainer = styled.div`
   align-items: center;
 
   .ContentContainer {
-    width: 100%;
+    width: 80%;
     height: 100%;
     display: flex;
     flex-direction: row;

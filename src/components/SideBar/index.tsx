@@ -1,31 +1,44 @@
+import { useNavigate } from 'react-router-dom'
 import { SideBarContainer } from './style'
 
 export default function SideBar() {
+  const navigate = useNavigate()
+
   return (
     <SideBarContainer>
       <h1> SearchFy </h1>
       <ul>
         <li>
-          <a href="/">
+          <h1 onClick={() => navigate('/Home')}>
             <span className="material-symbols-outlined">home</span> Home
-          </a>
+          </h1>
         </li>
         <li>
-          <a href="/Search">
+          <h1 onClick={() => navigate('/Search')}>
             <span className="material-symbols-outlined">search</span> Search
-          </a>
+          </h1>
         </li>
         <li>
-          <span className="material-symbols-outlined">favorite</span>
-          Favorites{' '}
+          <h1>
+            <span className="material-symbols-outlined">favorite</span>
+            Favorites{' '}
+          </h1>
         </li>
         <li>
-          <span className="material-symbols-outlined">travel_explore</span>
-          Remember
+          <h1>
+            <span className="material-symbols-outlined">travel_explore</span>
+            Remember
+          </h1>
         </li>
         <li>
-          <span className="material-symbols-outlined">logout</span>
-          <a href="/Login" onClick={() => window.localStorage.clear()}>Logout</a>
+          <h1
+            onClick={() => {
+              window.localStorage.clear(), navigate('/')
+            }}
+          >
+            <span className="material-symbols-outlined">logout</span>
+            Logout
+          </h1>
         </li>
       </ul>
     </SideBarContainer>

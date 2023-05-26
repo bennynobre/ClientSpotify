@@ -12,7 +12,7 @@ export const SideBarContainer = styled.div`
   h1 {
     color: #fff;
     padding-left: 1rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   li {
@@ -20,12 +20,16 @@ export const SideBarContainer = styled.div`
     padding-top: 2rem;
     font-size: 1.5rem;
     padding-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 
     span {
         padding-right: 1rem;
     }
 
-    a {
+    h1 {
       text-decoration: none;
       color: #b3b3b3;
       font-size: 1.5rem;

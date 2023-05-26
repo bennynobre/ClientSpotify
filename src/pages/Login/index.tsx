@@ -1,10 +1,14 @@
 import { useEffect } from 'react'
 import { LoginContainer } from './style'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
+
+  const navigate = useNavigate()
+
   const handleClick = () => {
-    const CLIENT_ID = ''
-    const REDIRECT_URI = 'http://localhost:5173/'
+    const CLIENT_ID = '614e8f9b79d3485db1cca84c7f4efe5a'
+    const REDIRECT_URI = 'http://localhost:3333/'
     const apiUrl = 'https://accounts.spotify.com/authorize'
     const scopes = [
       'user-read-private',
@@ -42,6 +46,7 @@ export default function Login() {
       } = getReturnedParamsFromSpotifyAuth(window.location.hash);
       console.log({access_token});
       window.localStorage.setItem('token', access_token)
+      navigate('/Home')
     }
   })
 

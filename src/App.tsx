@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react'
 import { AppRoutes } from './Routes'
 import { GlobalStyle } from './styles/global'
 import { access } from 'fs'
-import Login from './pages/Login';
+import Login from './pages/Login'
 
 function App() {
-
   // const getReturnedParamsFromSpotifyAuth = hash => {
   //   const stringAfterHashtag = hash.substring(1)
   //   const paramsInUrl = stringAfterHashtag.split('&')
@@ -34,8 +33,8 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      {token == null ? <Login /> : <AppRoutes /> }
-      {/* <AppRoutes /> */}
+      <AppRoutes />
+      {/* <Login /> */}
     </>
   )
 }
