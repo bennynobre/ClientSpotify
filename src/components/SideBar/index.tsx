@@ -25,7 +25,9 @@ export default function SideBar() {
           </h1>
         </li>
         <li>
-          <h1>
+          <h1
+            onClick={() => {navigate('/Remember')}}
+          >
             <span className="material-symbols-outlined">travel_explore</span>
             Remember
           </h1>

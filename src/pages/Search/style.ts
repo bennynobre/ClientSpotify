@@ -42,6 +42,8 @@ export const SearchContent = styled.div`
     height: 3rem;
     border-radius: 5rem;
     background-color: #1ed760;
+    border: none;
+    outline: none;
 
     &:hover {
       cursor: pointer;
