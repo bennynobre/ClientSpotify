@@ -3,7 +3,7 @@ import { TopTracksContainer } from "./style"
 type CardComponentProps = {
   title: string,
   index: number
-//   image: string,
+//   image?: string,
 //   url: string
 }
 

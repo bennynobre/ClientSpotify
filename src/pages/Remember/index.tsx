@@ -22,7 +22,9 @@ export default function Remember() {
 
     const ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=5'
 
-    const GENDERS_ENDPOINT = 'https://api.spotify.com/v1/browse/categories?limit=5'
+    const USER_ALBUMS_ENDPOINT = 'https://api.spotify.com/v1/me/albums'
+
+    const USER_SAVED_TRACKS_ENDPOINT = 'https://api.spotify.com/v1/me/tracks'
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -39,7 +41,6 @@ export default function Remember() {
       })
       .then(response => {
         setData(response.data)
-        console.log(response.data)
       })
   }
 
@@ -67,6 +68,19 @@ export default function Remember() {
       })
   }
 
+  const ShowUserAlbums = () => {
+    axios
+      .get(USER_ALBUMS_ENDPOINT, {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      })
+      .then(response => {
+        setData(response.data)
+        console.log(response.data)
+      })
+  }
+
 
   return (
     <RememberContainer>
@@ -76,6 +90,7 @@ export default function Remember() {
           <button onClick={GetTopTracks}>TopTracks</button>
           <button onClick={GetPlayLists}>TopPlayLists</button>
           <button onClick={GetArtists}>TopArtists</button>
+          <button onClick={ShowUserAlbums}>ShowUserAlbums</button>
         </RememberHeader>
 
         <TopTracksColumn>

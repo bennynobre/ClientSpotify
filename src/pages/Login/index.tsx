@@ -18,7 +18,8 @@ export default function Login() {
       'user-read-currently-playing',
       'user-read-recently-played',
       'user-read-playback-position',
-      'user-top-read'
+      'user-top-read',
+      'user-library-read'
     ]
     window.location.href = `${apiUrl}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${scopes.join(
       ' '

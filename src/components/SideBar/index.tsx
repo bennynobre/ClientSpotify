@@ -19,7 +19,9 @@ export default function SideBar() {
           </h1>
         </li>
         <li>
-          <h1>
+          <h1
+            onClick={() => {navigate('/Favorites')}}
+          >
             <span className="material-symbols-outlined">favorite</span>
             Favorites{' '}
           </h1>

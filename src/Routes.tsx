@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Unauthorized from './pages/Unauthorized'
 import { PrivateRoute } from './PrivateRoutes'
 import Remember from './pages/Remember'
+import Favorites from './pages/Favorites'
 export function AppRoutes() {
   return (
     <Router>
@@ -31,6 +32,14 @@ export function AppRoutes() {
           element={
             <PrivateRoute>
               <Remember />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/Favorites"
+          element={
+            <PrivateRoute>
+              <Favorites />
             </PrivateRoute>
           }
         />
